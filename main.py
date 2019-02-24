@@ -32,7 +32,6 @@ def main():
                             preference.append(-1)
                     stud.setPreference(preference)
                     grp.addStudent(stud)
-    grp.getPreferenceCombined()
-    print("La classe est de taille : " + str(grp.getSize()))
-    grp.displayGroup()
+    for stud in  grp.getSortedStudents():
+        print(stud.idStudent)
 main()
