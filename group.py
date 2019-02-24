@@ -61,4 +61,25 @@ class Group:
                 index = index+1
         return grpSorted
 
+    def getIndexStudent(self, student):
+        index = 0;
+        trouve = False
+        res = 0
+        while (index != len(self.members) and (trouve == False)):
+            if(self.members[index].getIdStudent() == student.getIdStudent()):
+                res = index
+            index+=1
+        return res
+
+    def getPreferedMutualStudent(self, student):
+        maxPref = 0
+        res = 0
+        for i, pref in enumerate(self.getPreferenceCombined()[self.getIndexStudent(student)]):
+            if pref > maxPref:
+                maxPref = pref
+                res=i
+        return self.members[res]
+
+
+
 

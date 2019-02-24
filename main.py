@@ -32,6 +32,6 @@ def main():
                             preference.append(-1)
                     stud.setPreference(preference)
                     grp.addStudent(stud)
-    for stud in  grp.getSortedStudents():
-        print(stud.idStudent)
+    for stud in  grp.members:
+        print(str(stud.getIdStudent())+" prefere "+ str(grp.getPreferedMutualStudent(stud).getIdStudent()))
 main()
