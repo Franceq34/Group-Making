@@ -1,3 +1,5 @@
+import math
+
 class Group:
     def __init__(self):
         self.members = []
@@ -79,6 +81,36 @@ class Group:
                 maxPref = pref
                 res=i
         return self.members[res]
+
+    def getPreferedMutualList(self, student):
+        l = self.getPreferenceCombined()[self.getIndexStudent(student)]
+        res = []
+        for i, pref in enumerate(self.getPreferenceCombined()[self.getIndexStudent(student)]):
+            maxVal = max(l)
+            if(maxVal != -1):
+                maxId = l.index(maxVal)
+                res.append(self.members[maxId])
+                l[maxId] = -1
+        return res
+
+    def getNbGrp3(self):
+        taille = self.getSize()
+        res = -1
+        if(taille>54):
+            res = -1
+        else:
+            if(taille<=36):
+                if(taille%2 == 1):
+                    res = 1
+                else:
+                    res= 0
+            else:
+                for i in range(0,19):
+                    nbgrp2 = (taille-(i*3))/2
+                    if((math.fmod(nbgrp2,1.0) == 0.0) and nbgrp2+i == 18.0):
+                        res = i
+        return res
+
 
 
 

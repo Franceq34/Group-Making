@@ -34,4 +34,8 @@ def main():
                     grp.addStudent(stud)
     for stud in  grp.members:
         print(str(stud.getIdStudent())+" prefere "+ str(grp.getPreferedMutualStudent(stud).getIdStudent()))
+    for stud in  grp.members:
+        print(grp.getPreferedMutualList(stud))
+    for i in range(18,58):
+        print("Avec "+ str(i) + " élèves, je forme "+ str(grp.getNbGrp3()) + " groupes de 3.")
 main()
