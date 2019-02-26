@@ -84,6 +84,7 @@ class Group:
 
     def getPreferedMutualList(self, student):
         l = self.getPreferenceCombined()[self.getIndexStudent(student)]
+        print(l)
         res = []
         for i, pref in enumerate(self.getPreferenceCombined()[self.getIndexStudent(student)]):
             maxVal = max(l)
@@ -110,6 +111,7 @@ class Group:
                     if((math.fmod(nbgrp2,1.0) == 0.0) and nbgrp2+i == 18.0):
                         res = i
         return res
+
 
 
 
